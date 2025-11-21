@@ -9,6 +9,7 @@ jobs:
     name: CI
     environment: dev
     runs-on: ubuntu-latest
+
     steps:
       - name: Obtener código fuente
         uses: actions/checkout@v4
@@ -49,6 +50,7 @@ jobs:
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
       - name: Crear archivo ZIP del proyecto
         run: zip -r build-artifact.zip . -x "node_modules/*" ".git/*"
+
       - name: Subir artefacto ZIP
         uses: actions/upload-artifact@v4
         with:
